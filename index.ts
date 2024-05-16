@@ -7,10 +7,10 @@ import {
 } from "./src/pool";
 
 const main = async () => {
-  const swap = await createPool();
-  const amountOut = await getOutputQuote(swap);
+  const pool = await createPool();
+  const amountOut = await getOutputQuote(pool);
 
-  const uTrade = uncheckedTrade(swap, amountOut);
+  const uTrade = uncheckedTrade(pool, amountOut);
 
   const executeSwap = await executeTrade(uTrade);
 
